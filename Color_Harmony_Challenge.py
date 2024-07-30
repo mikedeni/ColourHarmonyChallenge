@@ -333,6 +333,8 @@ def main():
                 if quit_rect.collidepoint(mouse_pos):
                     Main_Score.store_scores("scores.txt", Score)
                     game = False
+                    Sound.Stop_Background()
+                    draw_menu()
             continue
 
         for ball in balls_list:
@@ -354,11 +356,11 @@ def main():
 # Draw the main menu
 def draw_menu():
     Sound.Sound_Background()
-    
+
     # Load and set background image
     background_image = pygame.image.load("bg.jpg")
     screen.blit(background_image, (0, 0))
-    
+
     pygame.display.set_caption("Color Harmony Challenge")
     start_rect = Main_Menu.button("START", 100)
     quit_rect = Main_Menu.button("QUIT", -100)
